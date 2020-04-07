@@ -1,0 +1,84 @@
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .headerclass, .cards, .worldmap, .thefooter {
+    width:100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: auto;
+}
+
+[data-theme="dark"] .site-layout-content {
+  background: #141414;
+}
+[data-theme="dark"] .logo {
+  background: rgba(255, 255, 255, 0.3);
+}
+.title{
+  color: #fff;
+}
+#Pagename {
+  font-size: large;
+}
+.col {
+  background-color: aqua;
+}
+
+
+.site-layout .site-layout-background {
+  background: #fff;
+  min-height: auto;
+}
+
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.site-layout-background {
+  background: #fff;
+  min-height: auto;
+}
+.gutter-box {
+  padding: 8px 0;
+  background: #00a0e9;
+}
+.certain-category-search-dropdown .ant-select-dropdown-menu-item-group-title {
+  color: #666;
+  font-weight: bold;
+}
+
+.certain-category-search-dropdown .ant-select-dropdown-menu-item-group {
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.certain-category-search-dropdown .ant-select-dropdown-menu-item {
+  padding-left: 16px;
+}
+
+.certain-category-search-dropdown .ant-select-dropdown-menu-item.show-all {
+  text-align: center;
+  cursor: default;
+}
+
+.certain-category-search-dropdown .ant-select-dropdown-menu {
+  max-height: 300px;
+}
+#components-layout-demo-responsive .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+.Mainmenu{
+  vertical-align: middle;
+}
+
+.column1{
+  overflow: auto;
+}

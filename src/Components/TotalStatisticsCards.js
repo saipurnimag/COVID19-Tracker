@@ -40,41 +40,34 @@ function TotalStatisticsCards(props) {
   if (flag) {
     console.log("Rendering .. ", props.totaldata);
     return (
-      <div className="xyz">         
-            
-                <Statistic
-                  className="statistic"
-                  title="CONFIRMED"
-                  value={stats["confirmed"]}
-                  valueStyle={{ color: "Red" }}
-                  suffix="cases"
-                  style={{ minHeight: "100%",minWidth:"50%" }}
-                />
-            
+      <div>
+        <Statistic
           
-            
-              
-                <Statistic
-                  className="statistic"
-                  title="DEATHS"
-                  value={stats["deaths"]}
-                  valueStyle={{ color: "Blue" }}
-                  suffix="cases"
-                  style={{ minHeight: "100%" }}
-                />
-              
-            
-            
-              
-                <Statistic
-                  className="statistic"
-                  title="RECOVERED"
-                  value={stats["recovered"]}
-                  valueStyle={{ color: "Green" }}
-                  suffix="cases"
-                  style={{ minHeight: "100%" }}
-                />
-              
+          className="statistic"
+          title="CONFIRMED"
+          value={stats["confirmed"]}
+          valueStyle={{ color: "Red" }}
+          suffix="cases"
+          style={{ minHeight: "100%", minWidth: "50%" }}
+        />
+
+        <Statistic
+          className="statistic"
+          title="DEATHS"
+          value={stats["deaths"]}
+          valueStyle={{ color: "Blue" }}
+          suffix="cases"
+          style={{ minHeight: "100%" }}
+        />
+
+        <Statistic
+          className="statistic"
+          title="RECOVERED"
+          value={stats["recovered"]}
+          valueStyle={{ color: "Green" }}
+          suffix="cases"
+          style={{ minHeight: "100%" }}
+        />
       </div>
     );
   } else {

@@ -1,11 +1,13 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "../index.css";
-import { Row, Col, Layout, Menu } from "antd";
+import { Row, Col, Layout, Menu, Divider } from "antd";
 import TotalStatisticsCards from "./TotalStatisticsCards";
 import { Typography } from "antd";
 import WorldMapComponent from "./WorldMapComponent";
 import WorldGraphComponent from "./WorldGraphComponent";
+import CountryTableComponent from "./CountryTableComponent";
+import TableComponent from "./TableComponent";
 const { SubMenu } = Menu;
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
@@ -13,7 +15,7 @@ class Home extends React.Component {
   render(props) {
     console.log("Home.js maindata => ", this.props.maindata);
     return (
-      <Layout className="layout">
+      <Layout className="layout" >
         <Header style={{ height: "50%" }}>
           <Menu
             span={24}
@@ -70,17 +72,25 @@ class Home extends React.Component {
         </Header>
         <Content className="contentbox">
           <div className="headingname">
-            <Title> COVID-19</Title>
+            <Title > COVID-19</Title>
           </div>
-
+          
           <div className="CardHolder">
-            <TotalStatisticsCards totaldata={this.props.maindata} />
+            <TotalStatisticsCards  totaldata={this.props.maindata} />
           </div>
+          
+          
+            
           <div className="MapHolder">
-            <WorldGraphComponent totaldata={this.props.maindata} />
-          </div>
-          <div className="graphHolder" style={{ minWidth: "100%" }}>
             <WorldMapComponent totaldata={this.props.maindata} />
+          </div>
+          <div className="GraphHolder">
+          <WorldGraphComponent totaldata={this.props.maindata} />
+          </div>
+          <div className="CountiresTable" >
+          
+           <TableComponent />
+           <CountryTableComponent totaldata={this.props.maindata} />
           </div>
         </Content>
       </Layout>

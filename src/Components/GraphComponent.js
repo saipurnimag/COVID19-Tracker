@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import "../App.css";
 
-function WorldGraphComponent(props) {
+function GraphComponent(props) {
   const [flag, setFlag] = useState(false);
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -26,7 +26,7 @@ function WorldGraphComponent(props) {
   const makeData = () => {
     var totaldata = props.totaldata;
     var dataobj = [];
-    var obj = totaldata["Afghanistan"];
+    var obj = totaldata[props.location];
     for (var key in obj) {
       if (String(key) == "null") {
         console.log("here");
@@ -47,16 +47,16 @@ function WorldGraphComponent(props) {
       >
         <defs>
           <linearGradient id="confirmedcolor" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="blue" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="blue" stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id="deathcolor" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="red" stopOpacity={0.8} />
             <stop offset="95%" stopColor="red" stopOpacity={0} />
           </linearGradient>
-          <linearGradient id="deathcolor" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="blue" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="blue" stopOpacity={0} />
-          </linearGradient>
           <linearGradient id="recoveredcolor" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="blue" stopOpacity={0.8} />
-            <stop offset="95%" stopColor="blue" stopOpacity={0} />
+            <stop offset="5%" stopColor="green" stopOpacity={0.8} />
+            <stop offset="95%" stopColor="green" stopOpacity={0} />
           </linearGradient>
         </defs>
         <XAxis dataKey="date" />
@@ -89,4 +89,4 @@ function WorldGraphComponent(props) {
       </ResponsiveContainer>
   );
 }
-export default WorldGraphComponent;
+export default GraphComponent;

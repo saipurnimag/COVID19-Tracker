@@ -59,10 +59,10 @@
   margin-top:7px;
   text-align:center;
 }
-
+/*
 @media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .xyz,.statistic,.layout, .Mainmenu, .main, .right, .contentbox,.statCard,.CardHolder,.headingname {
+  /* For mobile phones: 
+  .CountiresTable,.xyz,.statistic,.layout, .Mainmenu, .main, .right, .contentbox,.statCard,.CardHolder,.headingname {
     align-self: center;
     min-width: 100%;
     
@@ -86,11 +86,11 @@
     border-style: solid;
     border-radius: 25px;
   }
-}
+}*/
+
 .contentbox{
   padding: 1% 4%;
   margin: 4% 4%;
-  background-color: aliceblue;
 }
 
 .statCard{
@@ -101,7 +101,6 @@
 }
 .CardHolder{
   float: left;
-  min-width: 38%;
   padding:2%;
   margin-right: auto;
   border:1px solid #f0f2f5;

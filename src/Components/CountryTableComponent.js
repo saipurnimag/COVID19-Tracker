@@ -108,6 +108,9 @@ const CountryTableComponent = (props) => {
     return op;
   };
   
+  const expandTheProvince = (record, country) =>{
+    return <GraphComponent totaldata = {props.totaldata} location = {country.name+"_"+record.name} />
+  }
 
   const expandTheCountry = (record) => {
     console.log("This is record ==> "+String(record));
@@ -146,10 +149,14 @@ const CountryTableComponent = (props) => {
     }
     
   };
+  const scroll = {};
+
+      scroll.x = '100vw';
 
   return (
-    <div>
+    
       <Table
+        span={24}
         expandable={{
           expandedRowRender: (record) => (
             expandTheCountry(record)
@@ -157,11 +164,11 @@ const CountryTableComponent = (props) => {
           rowExpandable: (record) => record.name !== "Not Expandable",
         }}
         pagination={false}
-        state
         columns={tableColumns}
         dataSource={data}
+        scroll = {scroll}
       />
-    </div>
+    
   );
 };
 

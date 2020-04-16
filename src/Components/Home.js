@@ -1,13 +1,14 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "../index.css";
-import { Row, Col, Layout, Menu, Divider } from "antd";
+import { Row, Col, Layout, Menu, Divider, Table } from "antd";
 import TotalStatisticsCards from "./TotalStatisticsCards";
 import { Typography } from "antd";
 import WorldMapComponent from "./WorldMapComponent";
 import WorldGraphComponent from "./WorldGraphComponent";
 import CountryTableComponent from "./CountryTableComponent";
 import TableComponent from "./TableComponent";
+import Grid from "antd/lib/card/Grid";
 const { SubMenu } = Menu;
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
@@ -15,7 +16,7 @@ class Home extends React.Component {
   render(props) {
     console.log("Home.js maindata => ", this.props.maindata);
     return (
-      <Layout className="layout" >
+      <Layout className="layout">
         <Header style={{ height: "50%" }}>
           <Menu
             span={24}
@@ -72,26 +73,43 @@ class Home extends React.Component {
         </Header>
         <Content className="contentbox">
           <div className="headingname">
-            <Title > COVID-19</Title>
+            <Title> COVID-19</Title>
           </div>
-          
-          <div className="CardHolder">
-            <TotalStatisticsCards  totaldata={this.props.maindata} />
-          </div>
-          
-          
+
+          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 24 }}
+              lg={{ span: 8 }}
+              gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+            >
+              <TotalStatisticsCards totaldata={this.props.maindata} />
+              <Divider />
+              <WorldGraphComponent totaldata={this.props.maindata} />
+            </Col>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 24 }}
+              lg={{ span: 16 }}
+              gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+            >
+              <WorldMapComponent totaldata={this.props.maindata} />
+            </Col>
+          </Row>
+          <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
             
-          <div className="MapHolder">
-            <WorldMapComponent totaldata={this.props.maindata} />
-          </div>
-          <div className="GraphHolder">
-          <WorldGraphComponent totaldata={this.props.maindata} />
-          </div>
-          <div className="CountiresTable" >
-          
-           <TableComponent />
-           <CountryTableComponent totaldata={this.props.maindata} />
-          </div>
+            <Col
+              xs={{ span: 24 }}
+              sm={{ span: 24 }}
+              md={{ span: 24 }}
+              lg={{ span: 24 }}
+              gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
+            >
+              <CountryTableComponent totaldata={this.props.maindata} />
+            </Col>
+          </Row>
         </Content>
       </Layout>
     );

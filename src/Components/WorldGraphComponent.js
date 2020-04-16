@@ -39,8 +39,8 @@ function WorldGraphComponent(props) {
 
   return (
       
-      <ResponsiveContainer 
-        width="100%" height={300}>
+      <ResponsiveContainer xs= {{ width: "100%", height: 300 }} sm= {{ width: "100%", height: 300 }} lg = {{ width: "100%", height:"100%" }} 
+        width="100%" height={250}>
       <AreaChart
         data={data}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}

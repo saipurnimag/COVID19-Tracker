@@ -81,6 +81,11 @@ function TableComponent() {
     });
   }
 
+  const scroll = {};
+    
+      scroll.y = 240;
+      scroll.x = '100vw';
+
   return (
     <Table
       className="components-table-demo-nested"
@@ -92,6 +97,7 @@ function TableComponent() {
         rowExpandable: (record) => record.name !== "Not Expandable",
       }}
       dataSource={data}
+      scroll={scroll}
     />
   );
 }

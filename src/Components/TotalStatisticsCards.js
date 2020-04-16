@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Statistic, Card, Row, Col } from "antd";
-import { Typography } from "antd";
-import LoadingComp from "./LoadingComp";
+import { Statistic, Typography, Skeleton, Divider } from "antd";
 import "../App.css";
 const { Title } = Typography;
 function TotalStatisticsCards(props) {
@@ -42,7 +40,7 @@ function TotalStatisticsCards(props) {
     return (
       <div>
         <Statistic
-          
+          md={{span:8}}
           className="statistic"
           title="CONFIRMED"
           value={stats["confirmed"]}
@@ -50,8 +48,10 @@ function TotalStatisticsCards(props) {
           suffix="cases"
           style={{ minHeight: "100%", minWidth: "50%" }}
         />
+        <Divider xs={{span:24}} sm={{span: 24}} md ={{type: "vertical"}} />
 
         <Statistic
+          md={{span:8}}
           className="statistic"
           title="DEATHS"
           value={stats["deaths"]}
@@ -59,8 +59,9 @@ function TotalStatisticsCards(props) {
           suffix="cases"
           style={{ minHeight: "100%" }}
         />
-
+        <Divider xs={{span:24}} sm={{span: 24}} md ={{type: "vertical"}} />
         <Statistic
+          md={{span:8}}
           className="statistic"
           title="RECOVERED"
           value={stats["recovered"]}
@@ -71,7 +72,7 @@ function TotalStatisticsCards(props) {
       </div>
     );
   } else {
-    return <LoadingComp />;
+    return <Skeleton active />;
   }
 }
 

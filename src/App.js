@@ -48,7 +48,6 @@ function App(props) {
     ];
 
     Promise.all(promises).then((result) => {
-      var k = "as";
       confirmed = readString(result[0].data, {
         header: true,
         dynamicTyping: true,
@@ -179,10 +178,8 @@ function App(props) {
   }
 
   if (!isEmpty(MainData)) {
-    console.log("App.js maindata => ", MainData);
     return <Home maindata={MainData} />;
   } else {
-    console.log("NotFetched .. ", MainData);
     return <LoadingComp />;
   }
 }

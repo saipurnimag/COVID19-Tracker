@@ -9,15 +9,16 @@ import {
   ResponsiveContainer
 } from "recharts";
 import "../App.css";
+import { Skeleton } from "antd";
 
 function WorldGraphComponent(props) {
-  const [flag, setFlag] = useState(false);
+  const [mapReady, setFlag] = useState(false);
   const [data, setData] = useState([]);
   useEffect(() => {
-    if (flag === false) {
+    if (mapReady === false) {
       getStates();
     }
-  }, [flag]);
+  }, [mapReady]);
 
   const getStates = () => {
     setData(makeData());
@@ -25,7 +26,6 @@ function WorldGraphComponent(props) {
   };
   const makeData = () => {
     var totaldata = props.totaldata;
-    var dataobj = [];
     var obj = totaldata["Afghanistan"];
     for (var key in obj) {
       if (String(key) == "null") {
@@ -36,7 +36,15 @@ function WorldGraphComponent(props) {
       }
     }
   };
+  return(<Skeleton active/>);
+}
 
+export default WorldGraphComponent;
+
+/**
+ * 
+ * 
+ * if(mapReady){
   return (
       
       <ResponsiveContainer xs= {{ width: "100%", height: 300 }} sm= {{ width: "100%", height: 300 }} lg = {{ width: "100%", height:"100%" }} 
@@ -89,4 +97,8 @@ function WorldGraphComponent(props) {
       </ResponsiveContainer>
   );
 }
-export default WorldGraphComponent;
+else{
+  return( <Skeleton active/> );
+}
+}
+ */

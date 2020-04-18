@@ -5,12 +5,11 @@ import {
   ComposableMap,
   Geographies,
   Geography,
-  Sphere,
-  Graticule,
   ZoomableGroup,
 } from "react-simple-maps";
 import { isoCountries, twotoThree } from "../Helpers/CountryCodes";
 import "../index.css";
+import { Skeleton } from "antd";
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 var min = 10,
@@ -54,6 +53,7 @@ const WorldMapComponent = (props) => {
     console.log(csv);
     return jsonobj;
   }
+  if(fetched){
 
   return (
     <div>
@@ -89,5 +89,9 @@ const WorldMapComponent = (props) => {
       
     </div>
   );
+          }
+          else{
+            return(<Skeleton active/>)
+          }
 };
 export default WorldMapComponent;

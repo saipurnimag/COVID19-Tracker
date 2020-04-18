@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Statistic, Typography, Skeleton, Divider } from "antd";
+import { Statistic, Typography, Skeleton, Divider, Space } from "antd";
 import "../App.css";
-const { Title } = Typography;
+const {Text, Title } = Typography;
 function TotalStatisticsCards(props) {
   const [flag, setFlag] = useState(false);
   const [data, setData] = useState({});
@@ -38,41 +38,47 @@ function TotalStatisticsCards(props) {
   if (flag) {
     console.log("Rendering .. ", props.totaldata);
     return (
-      <div>
+      <div style={{padding:"0% 10%"}}>
+        <Space direction="vertical" size="middle">
+        <Space>
+        <Text strong>CONFIRMED</Text>
         <Statistic
           md={{span:8}}
           className="statistic"
-          title="CONFIRMED"
           value={stats["confirmed"]}
-          valueStyle={{ color: "Red" }}
+          valueStyle={{ color: "BLUE" }}
           suffix="cases"
-          style={{ minHeight: "100%", minWidth: "50%" }}
+          style={{ minHeight: "100%", minWidth: "50%"}}
         />
-        <Divider xs={{span:24}} sm={{span: 24}} md ={{type: "vertical"}} />
-
+        </Space>
+        
+        <Space>
+        <Text strong>DEATHS</Text>
         <Statistic
           md={{span:8}}
           className="statistic"
-          title="DEATHS"
           value={stats["deaths"]}
-          valueStyle={{ color: "Blue" }}
+          valueStyle={{ color: "rED" }}
           suffix="cases"
           style={{ minHeight: "100%" }}
         />
-        <Divider xs={{span:24}} sm={{span: 24}} md ={{type: "vertical"}} />
+        </Space>
+        <Space>
+        <Text strong>RECOVERED</Text>
         <Statistic
           md={{span:8}}
           className="statistic"
-          title="RECOVERED"
           value={stats["recovered"]}
           valueStyle={{ color: "Green" }}
           suffix="cases"
           style={{ minHeight: "100%" }}
         />
+        </Space>
+        </Space>
       </div>
     );
   } else {
-    return <Skeleton active />;
+    return <Skeleton active  />;
   }
 }
 

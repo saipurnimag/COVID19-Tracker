@@ -52,42 +52,42 @@ function GraphComponent(props) {
         >
           <defs>
             <linearGradient id="confirmedcolor" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="blue" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="white" stopOpacity={0} />
+              <stop offset="1%" stopColor="blue" stopOpacity={0.8} />
+              <stop offset="1%" stopColor="white" stopOpacity={0} />
             </linearGradient>
 
             <linearGradient id="recoveredcolor" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="green" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="green" stopOpacity={0} />
+              <stop offset="1%" stopColor="green" stopOpacity={0.8} />
+              <stop offset="1%" stopColor="green" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="deathcolor" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="red" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="white" stopOpacity={0} />
+              <stop offset="1%" stopColor="red" stopOpacity={0.8} />
+              <stop offset="1%" stopColor="white" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis dataKey="date" />
           <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="2 2" />
           <Tooltip />
 
           <Area
             type="monotone"
             dataKey="confirmed"
-            stroke="#8884d8"
+            stroke="Blue"
             fillOpacity={1}
             fill="url(#confirmedcolor)"
           />
           <Area
             type="monotone"
             dataKey="deaths"
-            stroke="#82ca9d"
+            stroke="red"
             fillOpacity={1}
             fill="url(#deathcolor)"
           />
           <Area
             type="monotone"
             dataKey="recovered"
-            stroke="#82ca9d"
+            stroke="darkgreen"
             fillOpacity={1}
             fill="url(#recoveredcolor)"
           />

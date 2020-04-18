@@ -1,34 +1,59 @@
 import React, { useEffect, useState } from "react";
 import "antd/dist/antd.css";
 import "../index.css";
-import { Table, Switch, Radio, Form } from "antd";
-import { DownOutlined } from "@ant-design/icons";
-import LoadingComp from "./LoadingComp";
-import WorldGraphComponent from "./WorldGraphComponent";
+import { Table, } from "antd";
 import GraphComponent from "./GraphComponent";
 const columns = [
   {
     title: "Country Name",
     dataIndex: "name",
-    width: "25%",
+    width: "40%",
+    fixed:'left',
   },
   {
     title: "Confirmed Cases",
     dataIndex: "confirmed_cases",
-    width: "25%",
+    width: "15%",
     sorter: (a, b) => a.confirmed_cases - b.confirmed_cases,
+    fixed : 'right',
+    render(text, record) {
+      return {
+        props: {
+          style: { color: 'blue' },
+        },
+        children: <div>{text}</div>,
+      };
+    },
   },
   {
     title: "Deaths",
     dataIndex: "deaths",
-    width: "25%",
+    width: "15%",
     sorter: (a, b) => a.deaths - b.deaths,
+    fixed : 'right',
+    render(text, record) {
+      return {
+        props: {
+          style: { color: 'red' },
+        },
+        children: <div>{text}</div>,
+      };
+    },
   },
   {
     title: "Recovered",
     dataIndex: "recovered",
-    width: "25%",
+    width: "15%",
     sorter: (a, b) => a.recovered - b.recovered,
+    fixed : 'right',
+    render(text, record) {
+      return {
+        props: {
+          style: { color: 'green' },
+        },
+        children: <div>{text}</div>,
+      };
+    },
   },
 ];
 
@@ -123,24 +148,57 @@ const CountryTableComponent = (props) => {
         {
           title: "Province Name",
           dataIndex: "name",
+          width: "25%",
         },
         {
           title: "Confirmed Cases",
           dataIndex: "confirmed_cases",
           sorter: (a, b) => a.confirmed_cases - b.confirmed_cases,
+          width: '20%',
+          fixed: 'right',render(text, record) {
+            return {
+              props: {
+                style: { color: 'blue' },
+              },
+              children: <div>{text}</div>,
+            };
+          },
         },
         {
           title: "Deaths",
           dataIndex: "deaths",
           sorter: (a, b) => a.deaths - b.deaths,
+          width: '20%',
+          fixed:'right',
+          render(text, record) {
+            return {
+              props: {
+                style: { color: 'red' },
+              },
+              children: <div>{text}</div>,
+            };
+          },
         },
         {
           title: "Recovered",
           dataIndex: "recovered",
           sorter: (a, b) => a.recovered - b.recovered,
+          width: '20%',
+          fixed: 'right',
+          render(text, record) {
+            return {
+              props: {
+                style: { color: 'green' },
+              },
+              children: <div>{text}</div>,
+            };
+          },
         },
       ];
-      return <Table  expandable={{
+      
+      return <Table
+
+      scroll={scroll}  expandable={{
         expandedRowRender: (record) => (
           expandTheProvince(record,country)
         ),
@@ -156,7 +214,7 @@ const CountryTableComponent = (props) => {
   return (
     
       <Table
-        span={24}
+
         expandable={{
           expandedRowRender: (record) => (
             expandTheCountry(record)
@@ -167,6 +225,7 @@ const CountryTableComponent = (props) => {
         columns={tableColumns}
         dataSource={data}
         scroll = {scroll}
+        tableLayout = "fixed"
       />
     
   );
@@ -174,50 +233,3 @@ const CountryTableComponent = (props) => {
 
 export default CountryTableComponent;
 
-/*
-
-state = {
-    loading: true,
-    pagination: false,
-    size: "default",
-    expandable,
-    showHeader,
-    scroll: undefined,
-    hasData: false,
-    tableLayout: "fixed",
-  };
-
-  handleToggle = (prop) => (enable) => {
-    this.setState({ [prop]: enable });
-  };
-
-  render() {
-    const { ...state } = this.state;
-
-    
-
-*/
-
-/**
- * else {
-          //new Province
-          var provinceobj = deets[key];
-          var obj2 = {};
-          obj2["name"] = key;
-          for (var k in provinceobj) {
-            if (String(k) == "DataPoints") {
-              obj2["dates"] = provinceobj[k];
-              var datesAry = provinceobj[k];
-              var lastObj = datesAry[datesAry.length-1];
-              obj2["confirmed_cases"] = lastObj["confirmed"];
-              obj2["deaths"] = lastObj["deaths"];
-              obj2["recovered"] = lastObj["recovered"];              
-            }
-            if(Object.keys(obj2).length>0){
-              obj2["key"] = num++;
-              children.push(obj2);
-            }
-          }
-        }
- * 
- */
